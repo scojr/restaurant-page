@@ -1,6 +1,8 @@
 import "./styles.css";
 import { loadHome } from "./home";
 import { loadMenu } from "./menu";
+import { loadAbout } from "./about";
+import { loadContact } from "./contact";
 
 export const docElements = (function () {
   const content = document.querySelector("#content");
@@ -11,10 +13,9 @@ export const docElements = (function () {
 
 const pages = [
   { page: "home", function: loadHome },
-  // { page: "order", function: loadOrder },
   { page: "menu", function: loadMenu },
-  // { page: "about", function: loadAbout },
-  // { page: "contact", function: loadContact },
+  { page: "about", function: loadAbout },
+  { page: "contact", function: loadContact },
 
 ]
 
