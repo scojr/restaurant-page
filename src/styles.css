@@ -96,3 +96,7 @@ button:hover {
   background-position: center;
   color: black;
 }
+
+.card-container {
+  display: flex;
+}
