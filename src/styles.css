@@ -143,13 +143,25 @@ button:hover {
   color: black;
 }
 
-.card-container {
+/* .card-container {
   display: flex;
   justify-content: center;
   align-items: stretch;
   flex-wrap: wrap;
   margin: 0 auto;
   max-width: 1700px;
+} */
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  max-width: 1700px;
+  margin: 0 auto;
+}
+
+.img-card {
+  grid-row-end: span 2;
 }
 
 .card {
@@ -163,7 +175,6 @@ button:hover {
   border: 10px solid red;
   border-radius: 25px;
   height: min-content;
-  flex: 1 1 30%;
 }
 
 .card h2 {
@@ -177,7 +188,6 @@ button:hover {
 
 .card img {
   object-fit: contain;
-  height: min-content;
   grid-row: 2 / 3;
   grid-column: 1 / 2;
 }
