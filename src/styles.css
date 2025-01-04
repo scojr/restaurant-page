@@ -85,7 +85,7 @@ header img {
   justify-content: flex-end; */
   display: grid;
   grid-template-columns: minmax(12px, 2%) 1fr max-content;
-  grid-template-rows: 10% 1fr max-content;
+  grid-template-rows: 10% min-content 1fr min-content;
   text-decoration: none;
   font-size: 0.8rem;
   color: white;
@@ -104,14 +104,24 @@ header img {
   grid-column: 3 / 4;
   grid-row: 3 / 4;
   margin-right: 6px;
+  align-self: end;
 }
 
-.hero-img p {
+.hero-img h1 {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   font-size: 4em;
   font-weight: 900;
   text-shadow: 3px 3px 5px black;
+}
+
+.hero-img p {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  font-size: 2em;
+  font-weight: 900;
+  text-shadow: 3px 3px 5px black;
+  max-width: 60ch;
 }
 
 button {
@@ -143,6 +153,8 @@ button:hover {
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   color: black;
   background-color: #ffffff;
@@ -164,4 +176,14 @@ button:hover {
 
 .card p {
   padding: 12px;
+  order: 2;
+}
+
+.card img {
+  box-sizing: content-box;
+  height: 300;
+  width: 200;
+  flex-basis: 0;
+  order: 1;
+  border-bottom: 10px solid red;
 }

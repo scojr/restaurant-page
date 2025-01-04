@@ -1,7 +1,8 @@
-import { docElements } from ".";
+import { bannerConstructor, cardConstructor } from "./constructors";
+import aboutBanner from "./images/banner-cottonbro.jpg"
 
 export function loadAbout() {
-  const header = document.createElement("h1");
-  header.textContent = "Welcome to Odin!";
-  docElements.content.appendChild(header);
+  bannerConstructor(aboutBanner, "Maksim Goncharenok", "https://www.pexels.com/photo/person-holding-a-pizza-4773769/", "Our Story", "Fresh Ingredients, Family Tradition");
+  cardConstructor("Hans Pizzeria", "Welcome to Hans Pizzeria, Manhattan’s slice of heaven! Nestled in the heart of New York City, our pizzeria has been proudly serving the community with authentic, mouthwatering pizza and Italian classics since 2004.");
+  cardConstructor("Lorem ipsum dolor", "Lorem ipsum dolor sit amet, est apeirian mandamus in. No per sale pericula necessitatibus, an ferri delectus pri. Labores blandit cum ut, his cu atqui quodsi, atomorum senserit ex mel. Nam quod posse definitionem no, ex vim magna facilis constituto, eu viris blandit evertitur qui. An quis suas vis, error liberavisse usu an.");
 }
