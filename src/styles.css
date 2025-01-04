@@ -86,7 +86,6 @@ header img {
   display: grid;
   grid-template-columns: minmax(12px, 2%) 1fr max-content;
   grid-template-rows: 10% min-content 1fr min-content;
-  text-decoration: none;
   font-size: 0.8rem;
   color: white;
   height: 400px;
@@ -96,7 +95,8 @@ header img {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px, rgba(0, 0, 0, 0.24) 0px -3px 8px;
 }
 
-.hero-img a {
+.hero-img a,
+.img-card a {
   color: white;
 }
 
@@ -153,20 +153,21 @@ button:hover {
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: repeat(3, min-content);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   color: black;
-  background-color: #ffffff;
+  background-color: #ff0000;
   font-size: 1.2rem;
   margin: 30px 15px;
   border: 10px solid red;
   border-radius: 25px;
-  height: auto;
+  height: min-content;
   flex: 1 1 30%;
 }
 
 .card h2 {
+  grid-row: 1 / 2;
   color: white;
   background-color: #ff0000;
   font-weight: 600;
@@ -174,16 +175,28 @@ button:hover {
   padding-left: 12px;
 }
 
-.card p {
-  padding: 12px;
-  order: 2;
+.card img {
+  object-fit: contain;
+  height: min-content;
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
 }
 
-.card img {
-  box-sizing: content-box;
-  height: 300;
-  width: 200;
-  flex-basis: 0;
-  order: 1;
-  border-bottom: 10px solid red;
+.card span {
+  z-index: 1;
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+  align-self: end;
+  justify-self: end;
+  color: white;
+  font-size: 0.8em;
+  margin-right: 10px;
+  text-shadow: black 2px 2px 5px;
+}
+
+.card p {
+  grid-row: 3 / 4;
+  padding: 12px;
+  order: 2;
+  background-color: #ffffff;
 }

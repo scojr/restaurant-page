@@ -1,6 +1,6 @@
 import { docElements } from ".";
 
-export function cardConstructor(title, paragraph, img) {
+export function cardConstructor(title, paragraph, img, attributionName, attributionLink) {
   let cardContainer = document.querySelector(".card-container");
 
   if (!cardContainer) {
@@ -24,7 +24,7 @@ export function cardConstructor(title, paragraph, img) {
     imgContainer.setAttribute("alt", title);
     imgContainer.setAttribute("width", 600);
     imgContainer.setAttribute("height", 400);
-    card.append(imgContainer);
+    card.append(addAttribution(attributionName, attributionLink), imgContainer);
   }
 
   card.append(h2, p);
@@ -34,18 +34,22 @@ export function cardConstructor(title, paragraph, img) {
 
 export function bannerConstructor(img, attributionName, attributionLink, text, subtext) {
   const banner = document.createElement("div");
-  const attributionText = document.createElement("span");
-  attributionText.textContent = "Photo by ";
-  const attribution = document.createElement("a");
-  attribution.textContent = attributionName;
-  attribution.setAttribute("href", attributionLink);
-  attributionText.append(attribution);
   banner.classList.add("hero-img")
   banner.style.backgroundImage = `url(${img})`;
   const textContainer = document.createElement("h1");
   textContainer.textContent = text;
   const subtextContainer = document.createElement("p");
   subtextContainer.textContent = subtext;
-  banner.append(textContainer, subtextContainer, attributionText);
+  banner.append(textContainer, subtextContainer, addAttribution(attributionName, attributionLink));
   docElements.content.append(banner);
+}
+
+function addAttribution(name, link) {
+  const creditText = document.createElement("span");
+  creditText.textContent = "Photo by ";
+  const creditLink = document.createElement("a");
+  creditLink.textContent = name;
+  creditLink.setAttribute("href", link);
+  creditText.append(creditLink);
+  return creditText;
 }
