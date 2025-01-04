@@ -1,3 +1,5 @@
+import { docElements } from ".";
+
 export function cardConstructor(title, paragraph) {
   let cardContainer = document.querySelector(".card-container");
 
@@ -14,9 +16,19 @@ export function cardConstructor(title, paragraph) {
   p.textContent = paragraph;
   card.append(h2, p);
   cardContainer.appendChild(card);
-  return cardContainer;
+  docElements.content.append(cardContainer);
 }
 
-export function bannerConstructor(title, img) {
-  console.log(this);
+export function bannerConstructor(img, attributionName, attributionLink, text) {
+  const banner = document.createElement("div");
+  const attributionText = document.createElement("span");
+  attributionText.textContent = "Photo by ";
+  const attribution = document.createElement("a");
+  attribution.textContent = attributionName;
+  attribution.setAttribute("href", attributionLink);
+  attributionText.append(attribution);
+  banner.classList.add("hero-img")
+  banner.style.backgroundImage = `url(${img})`;
+  banner.append(attributionText);
+  docElements.content.append(banner);
 }
