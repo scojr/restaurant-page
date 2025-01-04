@@ -29,6 +29,11 @@ export function bannerConstructor(img, attributionName, attributionLink, text) {
   attributionText.append(attribution);
   banner.classList.add("hero-img")
   banner.style.backgroundImage = `url(${img})`;
+  if (text) {
+    const textContainer = document.createElement("p");
+    textContainer.textContent = text;
+    banner.append(textContainer);
+  }
   banner.append(attributionText);
   docElements.content.append(banner);
 }

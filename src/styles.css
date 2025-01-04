@@ -58,6 +58,7 @@ header nav {
 }
 
 .header-divider {
+  position: relative;
   background-color: #c42828;
   background-image: url(images/checkerboard.png);
   width: 100%;
@@ -80,8 +81,11 @@ header img {
 
 .hero-img {
   margin: none;
+  /* display: flex;
+  justify-content: flex-end; */
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: minmax(12px, 2%) 1fr max-content;
+  grid-template-rows: 10% 1fr max-content;
   text-decoration: none;
   font-size: 0.8rem;
   color: white;
@@ -89,7 +93,7 @@ header img {
   width: 100%;
   background-size: cover;
   background-position: center;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px, rgba(0, 0, 0, 0.24) 0px -3px 8px;
 }
 
 .hero-img a {
@@ -98,8 +102,16 @@ header img {
 
 .hero-img span {
   grid-column: 3 / 4;
-  justify-self: end;
-  align-self: end;
+  grid-row: 3 / 4;
+  margin-right: 6px;
+}
+
+.hero-img p {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  font-size: 4em;
+  font-weight: 900;
+  text-shadow: 3px 3px 5px black;
 }
 
 button {
@@ -124,25 +136,32 @@ button:hover {
 .card-container {
   display: flex;
   justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 1700px;
 }
 
-
 .card {
-  box-shadow: inset 0px 50px 0px 10px #ff0000, inset 0px -5px 0px 10px #ff0000, rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  ;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   color: black;
   background-color: #ffffff;
   font-size: 1.2rem;
-  padding: 6px 24px 24px 24px;
-  margin: 30px;
+  margin: 30px 15px;
+  border: 10px solid red;
   border-radius: 25px;
-  max-width: 600px;
-  height: max-content;
+  height: auto;
+  flex: 1 1 30%;
 }
 
 .card h2 {
   color: white;
+  background-color: #ff0000;
   font-weight: 600;
   font-size: 2rem;
-  margin-bottom: 12px;
+  padding-left: 12px;
+}
+
+.card p {
+  padding: 12px;
 }

@@ -1,4 +1,9 @@
 import { docElements } from ".";
+import margherita from "./images/margherita.jpg";
+import spaghetti from "./images/spaghetti.jpg";
+import cheesecake from "./images/cheesecake.jpg";
+import tomatoBanner from "./images/banner-kadher.jpg";
+import { bannerConstructor, cardConstructor } from "./constructors";
 
 const menuEntries = [
   { name: "Classic Margherita Pizza", description: "A thin, crispy crust topped with San Marzano tomato sauce, fresh mozzarella, and basil leaves, drizzled with olive oil." },
@@ -13,17 +18,8 @@ const menuEntries = [
 ];
 
 export function loadMenu() {
-  const header = document.createElement("h1");
-  const menuList = document.createElement("dl");
-  header.textContent = "Menu";
-  docElements.content.appendChild(header);
   for (const entry of menuEntries) {
-    const dish = document.createElement("dt");
-    dish.textContent = entry.name;
-    const description = document.createElement("dd");
-    description.textContent = entry.description;
-    menuList.appendChild(dish);
-    menuList.appendChild(description);
+    cardConstructor(entry.name, entry.description);
   }
-  docElements.content.appendChild(menuList);
+  bannerConstructor(tomatoBanner, "Abdul Kadher Akib", "https://www.pexels.com/photo/close-up-photo-of-red-tomatoes-11463629/", "Made from fresh, local ingredients.");
 }
