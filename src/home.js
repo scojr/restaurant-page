@@ -19,7 +19,7 @@ import pizzaImage from "./images/pizzas.jpg"
 
 export function loadHome() {
   docElements.content.append(cardConstructor("Han's Pizzeria", "Welcome to Han's Pizzeria, Manhattan’s slice of heaven! Nestled in the heart of New York City, our pizzeria has been proudly serving the community with authentic, mouthwatering pizza and Italian classics since 2004."));
-  docElements.content.append(cardConstructor("Han's Pizzeria", "Welcome to Han's Pizzeria, Manhattan’s slice of heaven! Nestled in the heart of New York City, our pizzeria has been proudly serving the community with authentic, mouthwatering pizza and Italian classics since 2004."));
+  docElements.content.append(cardConstructor("Lorem ipsum dolor", "Lorem ipsum dolor sit amet, est apeirian mandamus in. No per sale pericula necessitatibus, an ferri delectus pri. Labores blandit cum ut, his cu atqui quodsi, atomorum senserit ex mel. Nam quod posse definitionem no, ex vim magna facilis constituto, eu viris blandit evertitur qui. An quis suas vis, error liberavisse usu an."));
 }
 
 // docElements.content.append(makeCard("Han's Pizzeria", "Welcome to Han's Pizzeria, Manhattan’s slice of heaven! Nestled in the heart of New York City, our pizzeria has been proudly serving the community with authentic, mouthwatering pizza and Italian classics since 2004."));

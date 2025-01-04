@@ -58,7 +58,7 @@ header nav {
 }
 
 .header-divider {
-  background-color: rgb(196, 40, 40);
+  background-color: #c42828;
   background-image: url(images/checkerboard.png);
   width: 100%;
   height: 48px;
@@ -99,4 +99,26 @@ button:hover {
 
 .card-container {
   display: flex;
+  justify-content: center;
+}
+
+
+.card {
+  box-shadow: inset 0px 50px 0px 10px #ff0000, inset 0px -5px 0px 10px #ff0000, rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  ;
+  color: black;
+  background-color: #ffffff;
+  font-size: 1.2rem;
+  padding: 6px 24px 24px 24px;
+  margin: 30px;
+  border-radius: 25px;
+  max-width: 600px;
+  height: max-content;
+}
+
+.card h2 {
+  color: white;
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 12px;
 }
