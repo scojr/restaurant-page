@@ -8,7 +8,8 @@ export const docElements = (function () {
   const content = document.querySelector("#content");
   const nav = document.querySelector("nav");
   const buttons = document.querySelectorAll("button");
-  return { content, nav, buttons }
+  const logo = document.querySelector(".header-logo");
+  return { content, nav, buttons, logo }
 })();
 
 const pages = [
@@ -16,7 +17,6 @@ const pages = [
   { page: "menu", function: loadMenu },
   { page: "about", function: loadAbout },
   { page: "contact", function: loadContact },
-
 ]
 
 for (const button of docElements.buttons) {
@@ -24,6 +24,10 @@ for (const button of docElements.buttons) {
     loadPage(button.dataset.page);
   })
 }
+
+docElements.logo.addEventListener("click", (e) => {
+  loadPage("home");
+});
 
 function loadPage(pageToLoad) {
   clearContent()
@@ -37,4 +41,4 @@ function clearContent() {
   }
 }
 
-loadHome();
+loadPage("home");

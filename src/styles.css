@@ -50,6 +50,11 @@ body {
   padding: 0;
 }
 
+.header-logo:hover {
+  filter: drop-shadow(0 0 5px white);
+  cursor: pointer;
+}
+
 header nav {
   display: flex;
   justify-content: center;
