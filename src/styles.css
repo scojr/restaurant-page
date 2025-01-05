@@ -155,26 +155,27 @@ button:hover {
 .card-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  max-width: 1700px;
-  margin: 0 auto;
+  grid-template-rows: repeat(5, min-content);
+  max-width: 1800px;
+  margin: 48px auto;
+  gap: 24px;
+}
+
+
+.card {
+  position: relative;
+  display: grid;
+  grid-template-rows: min-content max-content;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  color: black;
+  background-color: #ff0000;
+  border: 12px solid red;
+  border-radius: 24px;
 }
 
 .img-card {
   grid-row-end: span 2;
-}
-
-.card {
-  display: grid;
-  grid-template-rows: repeat(3, min-content);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  color: black;
-  background-color: #ff0000;
-  font-size: 1.2rem;
-  margin: 30px 15px;
-  border: 10px solid red;
-  border-radius: 25px;
-  height: min-content;
+  grid-template-rows: min-content max-content auto;
 }
 
 .card h2 {
@@ -183,13 +184,24 @@ button:hover {
   background-color: #ff0000;
   font-weight: 600;
   font-size: 2rem;
-  padding-left: 12px;
+}
+
+.card p {
+  grid-row: 3 / 4;
+  padding: 12px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 .card img {
-  object-fit: contain;
+  object-fit: cover;
+  overflow: hidden;
   grid-row: 2 / 3;
   grid-column: 1 / 2;
+  border-radius: 12px;
+  margin-bottom: 12px;
 }
 
 .card span {
@@ -200,13 +212,6 @@ button:hover {
   justify-self: end;
   color: white;
   font-size: 0.8em;
-  margin-right: 10px;
+  margin: 0 12px 6px 0;
   text-shadow: black 2px 2px 5px;
-}
-
-.card p {
-  grid-row: 3 / 4;
-  padding: 12px;
-  order: 2;
-  background-color: #ffffff;
 }
