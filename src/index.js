@@ -9,7 +9,7 @@ export const docElements = (function () {
   const nav = document.querySelector("nav");
   const buttons = document.querySelectorAll("button");
   const logo = document.querySelector(".header-logo");
-  return { content, nav, buttons, logo }
+  return { content, nav, buttons, logo, };
 })();
 
 const pages = [

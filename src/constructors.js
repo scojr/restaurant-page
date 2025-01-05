@@ -1,35 +1,33 @@
 import { docElements } from ".";
 
-export function cardConstructor(title, paragraph, img, attributionName, attributionLink) {
-  let cardContainer = document.querySelector(".card-container");
+export function cardContainerConstructor(num) {
+  const cardContainer = document.createElement("div");
+  cardContainer.classList.add("card-container");
+  cardContainer.style.setProperty("--grid-columns", num)
 
-  if (!cardContainer) {
-    cardContainer = document.createElement("div");
-    cardContainer.classList.add("card-container");
+  return function cardConstructor(title, paragraph, img, attributionName, attributionLink) {
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    const h2 = document.createElement("h2");
+    h2.textContent = title;
+
+    const p = document.createElement("p");
+    p.textContent = paragraph;
+
+    if (img) {
+      card.classList.add("img-card");
+      const imgContainer = document.createElement("img");
+      imgContainer.setAttribute("src", img);
+      imgContainer.setAttribute("alt", title);
+      imgContainer.setAttribute("width", 600);
+      imgContainer.setAttribute("height", 400);
+      card.append(addAttribution(attributionName, attributionLink), imgContainer);
+    }
+    card.append(h2, p);
+    cardContainer.appendChild(card);
+    docElements.content.append(cardContainer);
   }
-
-  const card = document.createElement("div");
-  card.classList.add("card");
-
-  const h2 = document.createElement("h2");
-  h2.textContent = title;
-
-  const p = document.createElement("p");
-  p.textContent = paragraph;
-
-  if (img) {
-    card.classList.add("img-card");
-    const imgContainer = document.createElement("img");
-    imgContainer.setAttribute("src", img);
-    imgContainer.setAttribute("alt", title);
-    imgContainer.setAttribute("width", 600);
-    imgContainer.setAttribute("height", 400);
-    card.append(addAttribution(attributionName, attributionLink), imgContainer);
-  }
-
-  card.append(h2, p);
-  cardContainer.appendChild(card);
-  docElements.content.append(cardContainer);
 }
 
 export function bannerConstructor(img, attributionName, attributionLink, text, subtext) {
