@@ -1,14 +1,13 @@
 import { docElements } from ".";
 
-export function cardContainerConstructor(num) {
+export function constructCardGrid(columns) {
   const cardContainer = document.createElement("div");
   cardContainer.classList.add("card-container");
-  cardContainer.style.setProperty("--grid-columns", num)
+  cardContainer.style.setProperty("--grid-columns", columns)
 
-  return function constructCard(title, paragraph, img, attributionName, attributionLink) {
+  function newCard(title, paragraph, img, attributionName, attributionLink) {
     const card = document.createElement("div");
     card.classList.add("card");
-
     const h2 = document.createElement("h2");
     h2.textContent = title;
 
@@ -31,7 +30,16 @@ export function cardContainerConstructor(num) {
     }
     cardContainer.appendChild(card);
     docElements.content.append(cardContainer);
+
+    function scale(columnsToSpan, rowToSpan, scales) {
+      card.style.setProperty("--column-span", columnsToSpan);
+      card.style.setProperty("--row-span", rowToSpan);
+    }
+
+    return { scale };
   }
+
+  return { newCard };
 }
 
 export function bannerConstructor(img, attributionName, attributionLink, text, subtext) {

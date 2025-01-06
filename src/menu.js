@@ -3,7 +3,7 @@ import margherita from "./images/margherita.jpg";
 import spaghetti from "./images/spaghetti.jpg";
 import cheesecake from "./images/cheesecake.jpg";
 import tomatoBanner from "./images/banner-kadher.jpg";
-import { bannerConstructor, cardContainerConstructor } from "./constructors";
+import { bannerConstructor, constructCardGrid } from "./constructors";
 
 const menuEntries = [
   { name: "Classic Margherita Pizza", description: "A thin, crispy crust topped with San Marzano tomato sauce, fresh mozzarella, and basil leaves, drizzled with olive oil.", img: margherita, by: "Katherine Lynch", source: "https://flickr.com/photos/floridadine/6474472149/" },
@@ -21,9 +21,12 @@ const menuEntries = [
 ];
 
 export function loadMenu() {
-  const menuCardConstructor = cardContainerConstructor(3);
+  const menuGrid = constructCardGrid(3);
   for (const entry of menuEntries) {
-    menuCardConstructor(entry.name, entry.description, entry.img, entry.by, entry.source);
+    const menuEntryCard = menuGrid.newCard(entry.name, entry.description, entry.img, entry.by, entry.source);
+    if (entry.img) {
+      menuEntryCard.scale(0, 2)
+    }
   }
   bannerConstructor(tomatoBanner, "Abdul Kadher Akib", "https://www.pexels.com/photo/close-up-photo-of-red-tomatoes-11463629/", "Made Fresh,. Made for You.", "From classic favorites to signature creations, our menu has it all.");
 }

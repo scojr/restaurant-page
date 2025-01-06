@@ -148,27 +148,21 @@ button:hover {
   color: black;
 }
 
-/* .card-container {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  max-width: 1700px;
-} */
-
 .card-container {
   --grid-columns: 2;
   display: grid;
-  grid-template-columns: repeat(var(--grid-columns), auto);
-  grid-template-rows: repeat(5, min-content);
-  max-width: 1360px;
+  grid-template-columns: repeat(var(--grid-columns), minmax(min-content, 1fr));
+  max-width: 1350px;
   margin: 48px auto;
   gap: 24px;
 }
 
 
 .card {
+  --row-span: 0;
+  --column-span: 0;
+  grid-row-end: span var(--row-span);
+  grid-column-end: span var(--column-span);
   position: relative;
   display: grid;
   grid-template-rows: min-content max-content;
@@ -177,12 +171,10 @@ button:hover {
   background-color: #ff0000;
   border: 12px solid red;
   border-radius: 24px;
+  min-width: 50px;
+  min-width: none;
 }
 
-.img-card {
-  grid-row-end: span 2;
-  grid-template-rows: min-content max-content auto;
-}
 
 .card h2 {
   grid-row: 1 / 2;
@@ -204,6 +196,7 @@ button:hover {
 }
 
 .card img {
+  max-width: min-content;
   max-height: 100%;
   width: 100%;
   object-fit: cover;
@@ -233,7 +226,7 @@ button:hover {
 .img-only {
   display: block;
   position: relative;
-  width: 700px;
+  /* width: 700px; */
 }
 
 .img-only img {
@@ -250,8 +243,8 @@ button:hover {
   transform: translate(-100%, -100%);
 }
 
-@media screen and (max-width: 1000px) {
+/* @media screen and (max-width: 1000px) {
   .card-container {
     grid-template-columns: 1fr;
   }
-}
+} */
