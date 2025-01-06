@@ -160,9 +160,9 @@ button:hover {
 .card-container {
   --grid-columns: 2;
   display: grid;
-  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  grid-template-columns: repeat(var(--grid-columns), auto);
   grid-template-rows: repeat(5, min-content);
-  max-width: 1800px;
+  max-width: 1360px;
   margin: 48px auto;
   gap: 24px;
 }
@@ -190,6 +190,7 @@ button:hover {
   background-color: #ff0000;
   font-weight: 600;
   font-size: 2rem;
+  text-align: center;
 }
 
 .card p {
@@ -203,6 +204,8 @@ button:hover {
 }
 
 .card img {
+  max-height: 100%;
+  width: 100%;
   object-fit: cover;
   overflow: hidden;
   grid-row: 2 / 3;
@@ -214,6 +217,7 @@ button:hover {
   border-radius: 0 0 12px 12px;
 }
 
+
 .card span {
   z-index: 1;
   grid-row: 2 / 3;
@@ -224,4 +228,30 @@ button:hover {
   font-size: 0.8em;
   margin: 0 12px 6px 0;
   text-shadow: black 2px 2px 5px;
+}
+
+.img-only {
+  display: block;
+  position: relative;
+  width: 700px;
+}
+
+.img-only img {
+  object-fit: cover;
+  min-height: 100%;
+}
+
+.img-only span {
+  width: max-content;
+  overflow: hidden;
+  position: absolute;
+  left: 99%;
+  top: 100%;
+  transform: translate(-100%, -100%);
+}
+
+@media screen and (max-width: 1000px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
 }

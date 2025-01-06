@@ -5,7 +5,7 @@ export function cardContainerConstructor(num) {
   cardContainer.classList.add("card-container");
   cardContainer.style.setProperty("--grid-columns", num)
 
-  return function cardConstructor(title, paragraph, img, attributionName, attributionLink) {
+  return function constructCard(title, paragraph, img, attributionName, attributionLink) {
     const card = document.createElement("div");
     card.classList.add("card");
 
@@ -24,7 +24,11 @@ export function cardContainerConstructor(num) {
       imgContainer.setAttribute("height", 400);
       card.append(addAttribution(attributionName, attributionLink), imgContainer);
     }
-    card.append(h2, p);
+    if (h2.textContent && p.textContent) {
+      card.append(h2, p);
+    } else {
+      card.classList.add("img-only");
+    }
     cardContainer.appendChild(card);
     docElements.content.append(cardContainer);
   }
