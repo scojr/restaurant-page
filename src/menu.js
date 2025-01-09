@@ -21,6 +21,7 @@ const menuEntries = [
 ];
 
 export function loadMenu() {
+  bannerConstructor(tomatoBanner, "Abdul Kadher Akib", "https://www.pexels.com/photo/close-up-photo-of-red-tomatoes-11463629/", "Made Fresh, Made for You.", "From classic favorites to signature creations, our menu has it all.");
   const menuGrid = constructCardGrid(3);
   for (const entry of menuEntries) {
     const menuEntryCard = menuGrid.newCard(entry.name, entry.description, entry.img, entry.by, entry.source);
@@ -28,5 +29,4 @@ export function loadMenu() {
       menuEntryCard.scale(0, 2)
     }
   }
-  bannerConstructor(tomatoBanner, "Abdul Kadher Akib", "https://www.pexels.com/photo/close-up-photo-of-red-tomatoes-11463629/", "Made Fresh,. Made for You.", "From classic favorites to signature creations, our menu has it all.");
 }
