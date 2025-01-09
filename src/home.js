@@ -3,7 +3,6 @@ import heroImage from "./images/banner-goncharenok.jpg";
 import tomatoCard from "./images/home-top5way.jpg";
 import ovenCard from "./images/home-fariphotography.jpg";
 import boxesCard from "./images/home-maxavans.jpg";
-import bannerCard from "./images/home-castillo.jpg";
 
 export function loadHome() {
   const homeGrid = constructCardGrid(2);
