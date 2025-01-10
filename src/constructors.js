@@ -25,6 +25,10 @@ export function constructCardGrid(columns) {
     }
     if (h2.textContent && p.textContent) {
       card.append(h2, p);
+    } else if (h2.textContent && !p.textContent) {
+      card.append(h2);
+      card.classList.add("img-only");
+      card.classList.add("img-only-title");
     } else {
       card.classList.add("img-only");
     }
